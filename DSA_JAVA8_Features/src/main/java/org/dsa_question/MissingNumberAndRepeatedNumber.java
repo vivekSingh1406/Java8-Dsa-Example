@@ -19,11 +19,10 @@ public class MissingNumberAndRepeatedNumber {
 
         return ans;
     }
+
     public static void main(String[] args) {
 
-        int[][] arr = {{9,1,7}
-                ,{8,9,2}
-                ,{3,4,6}};
+        int[][] arr = {{9,1,7},{8,9,2},{3,4,6}};
         int[] ans = findMissingAndRepeatedValues(arr);
         for (int an : ans) {
             System.out.print(an+" ");
