@@ -1,4 +1,4 @@
-package org.example.java8.sat_zecdata;
+package org.Java8Example.BasicOperation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

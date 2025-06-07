@@ -1,4 +1,4 @@
-package org.example.java8.stream_api;
+package org.Java8Example.StreamApi.Student;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -151,7 +151,7 @@ public class StudentMain {
 
         /*----------- Count of students in each city -----------------*/
         Map<String, Long> cityCount = students.stream().collect(Collectors.groupingBy(Student::getCity,
-                        Collectors.counting()));
+                Collectors.counting()));
 
 //        for(Map.Entry<String, Long> entry : cityCount.entrySet()){
 //            System.out.println(entry.getKey() +"--> "+ entry.getValue());

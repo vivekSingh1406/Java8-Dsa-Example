@@ -1,4 +1,4 @@
-package org.example.java8.stream_api;
+package org.Java8Example.StreamApi.Student;
 
 
 public class Student {
