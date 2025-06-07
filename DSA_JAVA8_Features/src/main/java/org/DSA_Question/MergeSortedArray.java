@@ -1,11 +1,11 @@
-package org.dsa_question;
+package org.DSA_Question;
 
 public class MergeSortedArray {
 
     /**
      * Merges two sorted arrays into nums1 in-place.
      *
-     * Time Complexity: O(m + n) <br>
+     * Time Complexity: O(m + n)
      * Space Complexity: O(1) - in-place merge
      *
      * @param nums1 the first sorted array with extra space at the end to accommodate nums2

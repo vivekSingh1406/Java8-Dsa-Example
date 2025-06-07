@@ -1,6 +1,4 @@
-package org.dsa_question;
-
-import java.util.Arrays;
+package org.DSA_Question;
 
 public class PartitionArrayAccordingToGivenPivot {
 

@@ -1,4 +1,4 @@
-package org.dsa_question;
+package org.DSA_Question;
 
 public class TrappingRainWater {
 
