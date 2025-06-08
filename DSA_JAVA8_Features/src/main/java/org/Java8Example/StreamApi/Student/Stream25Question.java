@@ -3,32 +3,11 @@ package org.Java8Example.StreamApi.Student;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class StudentMain {
+public class Stream25Question {
 
     public static void main(String[] args) {
 
-        List<Student> students = Arrays.asList(
-                new Student("Aman", "IIT", "CSE", 80000, "Delhi"),
-                new Student("Rita", "NIT", "ECE", 65000, "Mumbai"),
-                new Student("Varun", "IIT", "ME", 70000, "Delhi"),
-                new Student("Neha", "BITS", "CSE", 75000, "Hyderabad"),
-                new Student("Raj", "NIT", "CSE", 60000, "Chennai"),
-                new Student("Simran", "BITS", "EEE", 72000, "Pune"),
-                new Student("Deepak", "IIT", "CSE", 85000, "Delhi"),
-                new Student("Priya", "VIT", "IT", 50000, "Mumbai"),
-                new Student("Karan", "VIT", "CSE", 52000, "Mumbai"),
-                new Student("Anjali", "IIT", "CSE", 81000, "Delhi"),
-                new Student("Nisha", "BITS", "ME", 68000, "Pune"),
-                new Student("Aakash", "NIT", "EEE", 62000, "Mumbai"),
-                new Student("Meena", "IIT", "CSE", 77000, "Bangalore"),
-                new Student("Rohan", "VIT", "CSE", 49000, "Chennai"),
-                new Student("Sana", "BITS", "ECE", 70000, "Hyderabad"),
-                new Student("Arjun", "NIT", "ME", 58000, "Delhi"),
-                new Student("Tina", "IIT", "IT", 74000, "Bangalore"),
-                new Student("Ishaan", "BITS", "CSE", 78000, "Hyderabad"),
-                new Student("Divya", "VIT", "CSE", 53000, "Pune"),
-                new Student("Gaurav", "NIT", "CSE", 59000, "Chennai")
-        );
+        List<Student> students = Student.getObject();
 
         /*------------------- Group students by college name -------------------*/
 //        Map<String,List<Student>> studentByCollege = students.stream().collect(Collectors.groupingBy(Student::getCollegeName));
