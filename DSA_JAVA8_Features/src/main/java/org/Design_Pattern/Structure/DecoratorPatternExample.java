@@ -1,4 +1,4 @@
-package org.design_pattern.structure;
+package org.Design_Pattern.Structure;
 
 // Component Interface
 interface Coffee {

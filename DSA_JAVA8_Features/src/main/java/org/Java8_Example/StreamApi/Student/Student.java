@@ -1,7 +1,5 @@
-package org.Java8Example.StreamApi.Student;
+package org.Java8_Example.StreamApi.Student;
 
-
-import org.Java8Example.StreamApi.Employee.Employee;
 
 import java.util.Arrays;
 import java.util.List;

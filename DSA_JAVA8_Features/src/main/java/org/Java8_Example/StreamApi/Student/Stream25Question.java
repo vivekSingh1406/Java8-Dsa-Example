@@ -1,4 +1,4 @@
-package org.Java8Example.StreamApi.Student;
+package org.Java8_Example.StreamApi.Student;
 
 import java.util.*;
 import java.util.stream.Collectors;

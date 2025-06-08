@@ -1,4 +1,4 @@
-package org.Java8Example.DataTimeApi;
+package org.Java8_Example.DataTimeApi;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;

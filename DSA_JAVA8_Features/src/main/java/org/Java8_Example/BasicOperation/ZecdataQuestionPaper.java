@@ -1,4 +1,4 @@
-package org.Java8Example.BasicOperation;
+package org.Java8_Example.BasicOperation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

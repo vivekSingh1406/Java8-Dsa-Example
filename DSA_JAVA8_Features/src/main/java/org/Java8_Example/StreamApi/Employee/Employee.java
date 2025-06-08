@@ -1,4 +1,4 @@
-package org.Java8Example.StreamApi.Employee;
+package org.Java8_Example.StreamApi.Employee;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.design_pattern.structure;
+package org.Design_Pattern.Structure;
 
 // Subject Interface
 interface Image {
