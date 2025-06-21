@@ -4,21 +4,8 @@ public class SelectionSort {
 
 
 /**
- * Key Features:
- * -------------
- * - In-place sorting (does not use extra space)
- * - Simple and easy to implement
- * - Not stable by default (equal elements may be reordered)
- * - Performs fewer swaps than Bubble Sort (at most n - 1 swaps)
- *
- * Time Complexity: O(n²) - still compares all element
- * Space Complexity: O(1) - constant space used for swapping
- * Use Cases:
- *
- * - Suitable for small arrays
- * - Not efficient for large datasets
- * - Good for teaching and understanding sorting mechanisms
- *
+ * Time Complexity: O(n²)
+ * Space Complexity: O(1)
  */
 
     public static void sortArr(int[] arr){
