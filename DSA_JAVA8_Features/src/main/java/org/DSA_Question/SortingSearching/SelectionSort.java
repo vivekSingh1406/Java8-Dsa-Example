@@ -29,8 +29,6 @@ public class SelectionSort {
         int[] arr = {12, 14, 10, 9, 5, 56, 89, 0, 19, 99};
 
         sortArr(arr);
-        for (int i : arr) {
-            System.out.println(i);
-        }
+        for (int i : arr) System.out.println(i);
     }
 }
