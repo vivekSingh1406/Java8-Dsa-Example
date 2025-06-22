@@ -32,6 +32,9 @@
         => The Optional class is a container object which may or may not contain a non-null value.
         It is used to avoid NullPointerExceptions.
 
+        Common Methods:
+            isPresent(), get(), orElse(T other), ifPresent(Consumer<? super T> action)
+
 
 
         How do you handle checked exceptions inside stream operations (like in lambda expressions)
@@ -58,15 +61,12 @@
         => Lazy evaluation means that intermediate operations in a stream (like map(), filter(), sorted())
         are not executed immediately when the stream is created or transformed.
 
-        They are only executed when a terminal operation (like collect(), forEach(), count(), etc.) is invoked.
 
         Intermediate	map(), filter(), sorted()	Lazy (Deferred)
         Terminal	collect(), forEach(), count()	Triggers execution
 
-
-        In Java streams, intermediate operations are lazy. They don’t execute until a terminal operation
-        triggers them. This allows for efficient chaining, short-circuiting, and better performance.
-
+        Java streams are lazy, meaning intermediate operations (e.g., map, filter, sorted) are not executed
+         immediately. Execution happens only when a terminal operation is called, like collect(), count(), or forEach().
 
 
 

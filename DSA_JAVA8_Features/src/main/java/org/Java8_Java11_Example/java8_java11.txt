@@ -1,0 +1,48 @@
+1. What are the main features introduced in Java 8?
+=>
+    Lambda Expressions – anonymous functions for concise behavior implementation
+    Functional Interfaces – interfaces with a single abstract method (e.g., Runnable, Comparator)
+    Stream API – process collections in a functional style
+    Default & Static Methods in Interfaces – methods with implementations in interfaces
+    Optional Class – avoids null checks and NullPointerException
+    New Date and Time API – java.time package (thread-safe and immutable)
+    Nashorn JavaScript Engine – run JavaScript code in Java (deprecated in Java 11)
+
+
+2. What is lazy evaluation in streams?
+=>
+    Intermediate operations like filter(), map(), sorted() are lazy, meaning they are not executed until a terminal
+    operation like collect(), forEach(), or count() is called.
+
+    Benefit:
+        Efficient processing
+        Avoids unnecessary computations
+
+3. What are the main features introduced in Java 11?
+=>
+    Local-Variable Syntax for Lambda Parameters (var)
+    HTTP Client API (Standardized) – Improved HTTP communication using HttpClient
+    New String Methods – isBlank(), lines(), strip(), repeat()
+    File Methods – readString(), writeString() in Files class
+    Pattern Matching Preview (JEP 305) – Early pattern matching
+    Removed deprecated APIs – e.g., Nashorn JS engine
+
+4. What are the new String methods in Java 11?
+=>
+    isBlank()	Returns true if string is empty or whitespace
+    lines()	Returns a stream of lines
+    strip()	Removes leading/trailing whitespace
+    repeat(n)	Repeats the string n times
+
+5. What is the use of var in lambda parameters in Java 11?
+=>
+    Java 11 allows the use of var in lambda parameter declarations to support annotations.
+    Example:
+        (list.stream().map((@Nonnull var s) -> s.toUpperCase()));
+
+
+6. How is Java 11 different from Java 8 in terms of LTS and support?
+=>
+    Both Java 8 and Java 11 are Long-Term Support (LTS) versions.
+    Java 8 is older and lacks modern features (like modules, var, new APIs).
+    Java 11 is more performant, cleaner, and better for microservices (especially with HTTP Client, improved GC, etc.)
