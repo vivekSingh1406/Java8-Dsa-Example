@@ -3,8 +3,6 @@ package org.DSA_Question.SortingSearching;
 public class BubbleSort {
 
     /**
-     *
-     * @param arr is an array
      * TimeComplexity is: O(n2)
      * SpaceComplexity is: O(1)
      */
