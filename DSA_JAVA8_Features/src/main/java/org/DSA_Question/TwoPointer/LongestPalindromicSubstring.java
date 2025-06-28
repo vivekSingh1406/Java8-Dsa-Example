@@ -1,4 +1,4 @@
-package org.DSA_Question.TwoPointerTechnique;
+package org.DSA_Question.TwoPointer;
 
 public class LongestPalindromicSubstring {
 
