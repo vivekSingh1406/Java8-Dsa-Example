@@ -37,7 +37,7 @@ public class ListOperation {
                 .filter(e->e.getValue() > 1)
                 .map(Map.Entry::getKey)
                 .toList();
-//        duplicate.forEach(System.out::println);
+        duplicate.forEach(System.out::println);
 
         //---------------------- find top 3 distinct largest numbers --------------------------
         list.stream().distinct().sorted(Comparator.reverseOrder())
