@@ -17,7 +17,15 @@ public class CharacterOperation {
 
         System.out.println(frequencyMap);
 
-        List<Integer> lenString = items.stream().map(String::length).toList();
+        List<Integer> lenString = items.stream()
+                .map(String::length).toList();
         System.out.println(lenString);
+
+        List<String> starAndEnd = items.stream().filter(t-> t.startsWith("a")
+                && t.endsWith("e")).toList();
+        System.out.println(starAndEnd);
+
+        List<String> sortList = items.stream().distinct().sorted().toList();
+        System.out.println(sortList);
     }
 }

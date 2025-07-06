@@ -6,13 +6,12 @@
     Default & Static Methods in Interfaces – methods with implementations in interfaces
     Optional Class – avoids null checks and NullPointerException
     New Date and Time API – java.time package (thread-safe and immutable)
-    Nashorn JavaScript Engine – run JavaScript code in Java (deprecated in Java 11)
 
 
 2. What is lazy evaluation in streams?
 =>
-    Intermediate operations like filter(), map(), sorted() are lazy, meaning they are not executed until a terminal
-    operation like collect(), forEach(), or count() is called.
+    Intermediate operations like filter(), map(), sorted() are lazy, meaning they are not executed until a
+    terminal operation like collect(), forEach(), or count() is called.
 
     Benefit:
         Efficient processing
