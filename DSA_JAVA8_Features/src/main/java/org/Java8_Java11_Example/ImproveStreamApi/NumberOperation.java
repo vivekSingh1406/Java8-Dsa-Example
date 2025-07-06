@@ -1,13 +1,11 @@
 package org.Java8_Java11_Example.ImproveStreamApi;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-public class SomeOperation {
+public class NumberOperation {
 
     public static void main(String[] args) {
 
@@ -44,16 +42,6 @@ public class SomeOperation {
         System.out.println("Frequency Map: " + frequencyMap);
 
         /**
-         * Filter numbers greater than 100
-         */
-        List<Integer> greaterValue = Arrays.stream(arr)
-                .filter(t -> t > 100)
-                .boxed()
-                .toList();
-        System.out.println("Numbers > 100: " + greaterValue);
-
-
-        /**
          * Find the maximum number in the array
          * Find the minimum number in the array
          * Calculate the sum of all elements in the array
@@ -65,5 +53,41 @@ public class SomeOperation {
         double average = Arrays.stream(arr).average().orElse(0.0);
 
         System.out.println("Max: " + max + ", Min: " + min + ", Sum: " + sum + ", Average: " + average);
+
+        List<Integer> numbers = Arrays.asList(5, 3, 9, 1, 7, 11, 14, 16, 19, 20, 21, 21);
+
+        // remove duplicate number in a list
+        numbers.stream().distinct().forEach(System.out::println);
+
+        // second-smallest number in a list
+        int secondNumber =  numbers.stream()
+                .distinct()
+                .sorted()
+                .skip(1)
+                .findFirst().orElse(0);
+        System.out.println("second smallest number: "+ secondNumber);
+
+        // second-largest number in a list
+        int secondHighest = numbers.stream()
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst().orElse(0);
+        System.out.println("second highest number: "+ secondHighest);
+
+        // find number start with 1
+        List<Integer> startNumber1 = numbers.stream()
+                .filter(t-> String.valueOf(t).startsWith("1"))
+                .toList();
+        System.out.println(startNumber1);
+
+
+        // extract flat map to list
+        List<List<Integer>> nested = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4, 11, 12), Arrays.asList(5, 9, 8));
+        List<Integer> flat = nested.stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+        System.out.println(flat);
+
     }
 }

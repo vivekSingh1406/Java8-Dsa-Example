@@ -1,6 +1,6 @@
 package org.Java8_Java11_Example.ImproveStreamApi;
 
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -10,7 +10,8 @@ public class RemoveDuplicates  {
 
         String input = "aaabbbccccdd";
 
-        String result = input.chars() // convert to IntStream
+        // remove duplicate character in a string
+        String result = input.chars()
                 .distinct()
                 .mapToObj(c -> String.valueOf((char) c))
                 .collect(Collectors.joining());
@@ -18,7 +19,7 @@ public class RemoveDuplicates  {
         System.out.println(result);
 
         //count each character in a string
-        Map<Character, Long> countCharacter =  input.chars() // returns an IntStream
+        Map<Character, Long> countCharacter =  input.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
