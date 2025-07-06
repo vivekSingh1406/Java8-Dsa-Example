@@ -1,15 +1,3 @@
-# Sliding Window Technique
-Q. Maximum Sum Subarray of Size K
-Q. First Negative Number in Each Subarray of Size K
-Q. Chocolate Distribution Problem
-Q. Smallest subarray with sum greater than x
-Q. Longest Substring with K unique Elements
-Q. Longest Substring without repeating elements
-Q. Count Occurances of Anagrams
-Q. Minimum Window Substring
-Q. Sliding Window Maximum
-
-
 
         # What are the main features introduced in Java 8?
 
@@ -77,13 +65,19 @@ Q. Sliding Window Maximum
         Lazy evaluation means that intermediate operations in a stream (like map(), filter(), sorted())
         are not executed immediately when the stream is created or transformed.
 
-
-        Intermediate	map(), filter(), sorted()	Lazy (Deferred)
-        Terminal	collect(), forEach(), count()	Triggers execution
-
         Java streams are lazy, meaning intermediate operations (e.g., map, filter, sorted) are not executed
-         immediately. Execution happens only when a terminal operation is called, like collect(), count(), or forEach().
+        immediately. Execution happens only when a terminal operation is called, like collect(), count(), or forEach().
 
+        Intermediate Operations: return a new stream (e.g., filter(), map(), sorted())
+        Terminal Operations: produce a result or a side effect (e.g., collect(), forEach(), reduce())
 
+        # What is the Stream API in Java
+        
+        The Stream API, introduced in Java 8, is used for processing collections (like Lists, Sets) in a functional and 
+        declarative style. Streams support operations like filter, map, reduce, collect, etc.
 
+        # What are default and static methods in interfaces?
+
+        default methods provide a default implementation.
+        static methods belong to the interface class and are not inhe
 
