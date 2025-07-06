@@ -1,4 +1,4 @@
-package org.Java8_Example.Basic1Operation;
+package org.Java8_Example.BasicOperation;
 
 import java.util.*;
 import java.util.function.Function;

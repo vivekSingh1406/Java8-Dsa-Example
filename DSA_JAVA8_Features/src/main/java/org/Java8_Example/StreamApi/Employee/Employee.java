@@ -29,6 +29,18 @@ public class Employee {
     public String getDepartmentName() { return departmentName; }
 
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", departmentName='" + departmentName + '\'' +
+                '}';
+    }
+
     public static List<Employee> getObject() {
         return Arrays.asList(
                 new Employee(101, "Alice", 70000, "New York", "USA", "HR"),
