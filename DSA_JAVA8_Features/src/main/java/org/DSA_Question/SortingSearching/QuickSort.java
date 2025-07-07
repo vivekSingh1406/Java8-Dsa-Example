@@ -1,4 +1,4 @@
-package org.DSA_Question.BinarySearch;
+package org.DSA_Question.SortingSearching;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package org.DSA1_Question.Math;
+package org.DSA_Question.MathProblem;
 
 public class ReversInteger {
 

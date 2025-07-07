@@ -1,4 +1,4 @@
-package org.ArrayString;
+package org.DSA_Question.Array$String;
 
 public class SecondLargest {
 

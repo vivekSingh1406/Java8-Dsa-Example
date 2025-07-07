@@ -1,4 +1,4 @@
-package org.ArrayString;
+package org.DSA_Question.Array$String;
 
 import java.util.HashMap;
 import java.util.Map;
