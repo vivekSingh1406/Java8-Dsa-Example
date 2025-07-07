@@ -1,4 +1,4 @@
-package org.DSA_Question.Sliding_Window;
+package org.DSA_Question.Sliding$Window;
 
 public class MaxSumSubarray {
 

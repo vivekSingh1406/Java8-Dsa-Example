@@ -1,4 +1,4 @@
-package org.DSA_Question.SortingSearching;
+package org.DSA_Question.Sorting$Searching;
 
 import java.util.Arrays;
 
