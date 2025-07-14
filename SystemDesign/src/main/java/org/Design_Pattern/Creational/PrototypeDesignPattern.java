@@ -3,7 +3,8 @@ package org.Design_Pattern.Creational;
 
 /*
 
-  The Prototype Design Pattern is a creational pattern used to clone existing objects instead of creating new ones from scratch. It’s useful when:
+  The Prototype Design Pattern is a creational pattern used to clone existing
+  objects instead of creating new ones from scratch. It’s useful when:
 
   Object creation is expensive (time or resources)
   You want to avoid complex object creation logic
