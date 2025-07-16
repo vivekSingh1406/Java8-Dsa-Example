@@ -77,7 +77,6 @@ public class StringOperation {
                 .map(s-> new StringBuilder(s).reverse().toString())
                 .forEach(System.out::println);
 
-
         //------------------- Sort by string length ------------------------------
         names.stream()
                 .sorted(Comparator.comparingInt(String::length))
