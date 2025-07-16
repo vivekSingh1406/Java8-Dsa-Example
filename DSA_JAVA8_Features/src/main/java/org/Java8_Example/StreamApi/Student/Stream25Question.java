@@ -38,12 +38,16 @@ public class Stream25Question {
 //        }
 
         /*----------------- Sort students by fees descending, then by name ascending --------------*/
-//        students.stream()
-//                .sorted(Comparator.comparingDouble(Student::getFees).reversed()
-//                .thenComparing(Student::getName)).forEach(System.out::println);
+        students.stream()
+                .sorted(Comparator.comparingDouble(Student::getFees).reversed()
+                .thenComparing(Student::getName))
+                .forEach(System.out::println);
 
         /*--------------- Get list of unique cities students belong to ----------------------*/
-//        students.stream().map(Student::getCity).distinct().forEach(System.out::println);
+        students.stream()
+                .map(Student::getCity)
+                .distinct()
+                .forEach(System.out::println);
 
         /*---------------  Find total fees collected by each college -----------------------*/
 //        Map<String, Double> totalFeesByCollege = students.stream()
@@ -62,15 +66,16 @@ public class Stream25Question {
 //        }
 
         /*---------------  Check if any student is from "Delhi" -------------------*/
-//        boolean anyFromDelhi  = students.stream().anyMatch(s-> s.getCity().equals("Delhi"));
-//        System.out.println(anyFromDelhi);
+        boolean anyFromDelhi  = students.stream()
+                .anyMatch(s-> s.getCity().equals("Delhi"));
+        System.out.println(anyFromDelhi);
 
         /*-------------- List of student names in uppercase from a specific department (e.g., "CSE") -----------*/
 
-//        students.stream()
-//                .filter(s -> "CSE".equalsIgnoreCase(s.getDepartment()))
-//                .map(s -> s.getName().toUpperCase())
-//                .forEach(System.out::println);
+        students.stream()
+                .filter(s -> "CSE".equalsIgnoreCase(s.getDepartment()))
+                .map(s -> s.getName().toUpperCase())
+                .forEach(System.out::println);
 
         /*------------ Group students by department, then by city. (Multi-level grouping) ------------------*/
 
@@ -84,75 +89,72 @@ public class Stream25Question {
 
         /*------------  Get a comma-separated list of all college names (distinct) -----------------*/
 
-//        String collegesName = students.stream()
-//                .map(Student::getCollegeName)
-//                .distinct()
-//                .collect(Collectors.joining(" "));
-//
-//        System.out.println(collegesName);
+        String collegesName = students.stream()
+                .map(Student::getCollegeName)
+                .distinct()
+                .collect(Collectors.joining(" "));
+
+        System.out.println(collegesName);
 
 
         /*------------- Students whose names start with "A" ---------------------*/
-//        students.stream()
-//                .filter(s-> s.getName().
-//                        startsWith("A"))
-//                .forEach(System.out::println);
+        students.stream()
+                .filter(s-> s.getName().startsWith("A"))
+                .forEach(System.out::println);
 
 
         /*----------  Students from BITS in Hyderabad -------------------*/
-//        students.stream()
-//                .filter(s-> s.getCollegeName()
-//                        .startsWith("BITS") &&
-//                        s.getCity().equals("Hyderabad"))
-//                .forEach(System.out::println);
+        students.stream()
+                .filter(s-> s.getCollegeName().startsWith("BITS") && s.getCity().equals("Hyderabad"))
+                .forEach(System.out::println);
 
 
         /*------------ List of student names who have fees < 60000 -----------------*/
-//        students.stream()
-//                .filter(s-> s.getFees() > 60000)
-//                .map(Student::getName).forEach(System.out::println);
+        students.stream()
+                .filter(s-> s.getFees() > 60000)
+                .map(Student::getName).forEach(System.out::println);
 
 
         /*----------- Students sorted by city, then name ----------------*/
 
-//        students.stream()
-//                .sorted(Comparator.comparing(Student::getCity)
-//                        .thenComparing(Student::getName))
-//                .forEach(System.out::println);
+        students.stream()
+                .sorted(Comparator.comparing(Student::getCity)
+                        .thenComparing(Student::getName))
+                .forEach(System.out::println);
 
 
         /*------------- List of departments available ----------------*/
-//        students.stream()
-//                .map(Student::getDepartment)
-//                .distinct()
-//                .forEach(System.out::println);
+        students.stream()
+                .map(Student::getDepartment)
+                .distinct()
+                .forEach(System.out::println);
 
 
         /*----------- Count of students in each city -----------------*/
         Map<String, Long> cityCount = students.stream().collect(Collectors.groupingBy(Student::getCity,
                 Collectors.counting()));
 
-//        for(Map.Entry<String, Long> entry : cityCount.entrySet()){
-//            System.out.println(entry.getKey() +"--> "+ entry.getValue());
-//        }
+        for(Map.Entry<String, Long> entry : cityCount.entrySet()){
+            System.out.println(entry.getKey() +"--> "+ entry.getValue());
+        }
 
 
         /*---------- Second highest fee student ------------------*/
-//        Student secondHighestFee = students.stream()
-//                .sorted(Comparator.comparingDouble(Student::getFees).reversed())
-//                .skip(1)
-//                .findFirst()
-//                .orElse(null);
-//        System.out.println(secondHighestFee);
+        Student secondHighestFee = students.stream()
+                .sorted(Comparator.comparingDouble(Student::getFees).reversed())
+                .skip(1)
+                .findFirst()
+                .orElse(null);
+        System.out.println(secondHighestFee);
 
 
         /*------------- Second low fee student ------------------*/
-//        Student secondLowFee = students.stream()
-//                .sorted(Comparator.comparingDouble(Student::getFees))
-//                .skip(1)
-//                .findFirst()
-//                .orElse(null);
-//        System.out.println(secondLowFee);
+        Student secondLowFee = students.stream()
+                .sorted(Comparator.comparingDouble(Student::getFees))
+                .skip(1)
+                .findFirst()
+                .orElse(null);
+        System.out.println(secondLowFee);
 
         /*------------------------------------------------------------------------------------------*/
         /*------------------------------------------------------------------------------------------*/
@@ -233,9 +235,9 @@ public class Stream25Question {
 
         /*----------- Get the student(s) with the longest name -------------------*/
 
-//        Optional<Student> longestName = students.stream()
-//                .max(Comparator.comparingInt(s-> s.getName().length()));
-//        System.out.println(longestName.get());
+        Optional<Student> longestName = students.stream()
+                .max(Comparator.comparingInt(s-> s.getName().length()));
+        System.out.println(longestName.get());
 
 
 
