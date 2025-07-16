@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class ListOperation {
+public class IntegerOperation {
 
     public static void main(String[] args) {
 
@@ -28,7 +28,6 @@ public class ListOperation {
                 System.out::println,
                 () -> System.out.println("no second lowest number")
         );
-
 
         //----------------------- find duplicate element -------------------------------
         List<Integer> duplicate = list.stream()
@@ -85,5 +84,8 @@ public class ListOperation {
         // ------------------------- filter data b/w 40 and 80 in the list ------------------------
         list.stream().filter(n-> n>40 && n<80).forEach(System.out::println);
 
+        // ------------------------- filter data last digit exit 0 ---------------------------------
+
+        list.stream().filter(t-> String.valueOf(t).endsWith("0")).forEach(System.out::println);
     }
 }
