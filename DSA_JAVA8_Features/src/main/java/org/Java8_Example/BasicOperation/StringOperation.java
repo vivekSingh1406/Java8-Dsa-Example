@@ -113,8 +113,7 @@ public class StringOperation {
         Map<Boolean, List<String>> partitioned = names.stream()
                 .filter(s -> !s.isEmpty())
                 .collect(Collectors.partitioningBy(
-                        s -> "aeiou".indexOf(Character.toLowerCase(s.charAt(0))) >= 0
-                ));
+                        s -> "aeiou".indexOf(Character.toLowerCase(s.charAt(0))) >= 0));
         System.out.println(partitioned);
 
         //---------------------- Remove strings with length < 3 ---------------------------
