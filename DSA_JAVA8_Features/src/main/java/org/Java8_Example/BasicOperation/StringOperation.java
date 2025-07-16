@@ -36,13 +36,11 @@ public class StringOperation {
                 .max(Comparator.comparingInt(String::length));
         longest.ifPresent(System.out::println);
 
-
         //-------------------- Count strings that match a condition --------------------------
         long countStartWithA = names.stream()
                 .filter(s -> s!=null && s.toLowerCase().startsWith("a"))
                 .count();
         System.out.println("Count the string start with A "+ countStartWithA);
-
 
         //---------------------- Concatenate all strings with a delimiter ---------------------
         String joined = names.stream()
@@ -95,7 +93,6 @@ public class StringOperation {
                 .findFirst();
         firstEndsWithE.ifPresent(System.out::println);
 
-
         //-------------------- Sort by last character ------------------------------
         names.stream()
                 .filter(s -> !s.isEmpty())
@@ -108,12 +105,10 @@ public class StringOperation {
                 .filter(otherList::contains)
                 .forEach(System.out::println);
 
-
         //----------------- Replace all empty strings with "N/A" ----------------------
         names.stream()
                 .map(s -> s.isEmpty() ? "N/A" : s)
                 .forEach(System.out::println);
-
 
         //---------------- Partition list into two: starting with vowel vs consonant ---------------
         Map<Boolean, List<String>> partitioned = names.stream()
@@ -123,12 +118,10 @@ public class StringOperation {
                 ));
         System.out.println(partitioned);
 
-
         //---------------------- Remove strings with length < 3 ---------------------------
         names.stream()
                 .filter(s -> s.length() >= 3)
                 .forEach(System.out::println);
-
 
         //----------------------- Convert List<String> to Set<String> ---------------------
         Set<String> uniqueSet = new HashSet<>(names);
