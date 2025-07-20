@@ -28,7 +28,8 @@ public class Stream20Question {
 
 
 //  -------------------  find the employee with the highest salary -------------
-        Optional<Employee> highestEmp = employees.stream().max(Comparator.comparing(Employee::getSalary));
+        Optional<Employee> highestEmp = employees.stream()
+                .max(Comparator.comparing(Employee::getSalary));
 //        System.out.println("Highest Salary Employee details "+highestEmp.get());
 
 
@@ -44,10 +45,12 @@ public class Stream20Question {
                 .map(Employee::getCity).distinct().toList();
 //        System.out.println(getUniqueCitiesName);
 
-//  ------------------ sort employees by salary in descending order --------------
+//  ------------------ sort employees by salary then sort by name in descending order --------------
 
         List<Employee> sortEmpByDesc = employees.stream()
-                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .sorted(Comparator.comparing(Employee::getSalary)
+                        .reversed()
+                        .thenComparing(Employee::getName))
                 .toList();
 //        System.out.println(sortEmpByDesc);
 

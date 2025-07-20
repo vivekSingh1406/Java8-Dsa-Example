@@ -10,17 +10,19 @@ public class Stream25Question {
         List<Student> students = Student.getObject();
 
         /*------------------- Group students by college name -------------------*/
-//        Map<String,List<Student>> studentByCollege = students.stream().collect(Collectors.groupingBy(Student::getCollegeName));
-//        for (Map.Entry<String, List<Student>> entry : studentByCollege.entrySet()) {
-//            System.out.println(entry.getKey() + "--> "+ entry.getValue());
-//        }
+        Map<String,List<Student>> studentByCollege = students.stream()
+                .collect(Collectors.groupingBy(Student::getCollegeName));
+        for (Map.Entry<String, List<Student>> entry : studentByCollege.entrySet()) {
+            System.out.println(entry.getKey() + "--> "+ entry.getValue());
+        }
 
         /*------------------- Average fees per department -----------------------*/
-//        Map<String, Double> avgFeesByDept = students.stream().collect(Collectors.groupingBy(Student::getDepartment,
-//                Collectors.averagingDouble(Student::getFees)));
-//        for (Map.Entry<String, Double> entry : avgFeesByDept.entrySet()) {
-//            System.out.println(entry.getKey() + "--> "+ entry.getValue());
-//        }
+        Map<String, Double> avgFeesByDept = students.stream()
+                .collect(Collectors.groupingBy(Student::getDepartment,
+                Collectors.averagingDouble(Student::getFees)));
+        for (Map.Entry<String, Double> entry : avgFeesByDept.entrySet()) {
+            System.out.println(entry.getKey() + "--> "+ entry.getValue());
+        }
 
         /*------------------ Find the student with the highest fees -----------------*/
 //        Optional<Student> highestFee = students.stream()
@@ -50,12 +52,12 @@ public class Stream25Question {
                 .forEach(System.out::println);
 
         /*---------------  Find total fees collected by each college -----------------------*/
-//        Map<String, Double> totalFeesByCollege = students.stream()
-//                .collect(Collectors.groupingBy(Student::getCollegeName, Collectors.summingDouble(Student::getFees)));
-//
-//        for (Map.Entry<String, Double> entry : totalFeesByCollege.entrySet()) {
-//            System.out.println(entry.getKey() + "--> "+ entry.getValue());
-//        }
+        Map<String, Double> totalFeesByCollege = students.stream()
+                .collect(Collectors.groupingBy(Student::getCollegeName, Collectors.summingDouble(Student::getFees)));
+
+        for (Map.Entry<String, Double> entry : totalFeesByCollege.entrySet()) {
+            System.out.println(entry.getKey() + "--> "+ entry.getValue());
+        }
 
         /*-------------------- Partition students into high-payers (fees > 50000) and others --------------*/
 //        Map<Boolean, List<Student>> partitioned = students.stream()
