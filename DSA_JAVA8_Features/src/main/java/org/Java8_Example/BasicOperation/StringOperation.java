@@ -30,6 +30,13 @@ public class StringOperation {
                 .distinct()
                 .forEach(System.out::println);
 
+
+        //-------------------- Remove duplicates --------------------------------------------
+        names.stream()
+                .map(String::toUpperCase)
+                .distinct()
+                .forEach(System.out::println);
+
         //-------------------- Find longest or shortest string -----------------------------
         Optional<String> longest = names.stream()
                 .filter(Objects::nonNull)

@@ -44,7 +44,7 @@ public class IntegerOperation {
 
 
         //---------------------- find low 3 distinct lowest numbers ---------------------------
-      list.stream().distinct().sorted()
+        list.stream().distinct().sorted()
                 .limit(3).forEach(System.out::println);
 
 
