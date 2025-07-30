@@ -1,4 +1,4 @@
-package org.DSA_Question;
+package org.DSA_Question.StackQueue;
 
 import java.util.Stack;
 

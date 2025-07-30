@@ -1,4 +1,4 @@
-package org.DSA_Question;
+package org.DSA_Question.Sorting$Searching;
 
 public class MergeSortedArray {
 
