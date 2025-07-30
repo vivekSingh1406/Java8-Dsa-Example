@@ -29,23 +29,17 @@ public class IntegerOperation {
                 () -> System.out.println("no second lowest number")
         );
 
-        //----------------------- find duplicate element -------------------------------
-        List<Integer> duplicate = list.stream()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet().stream()
-                .filter(e->e.getValue() > 1)
-                .map(Map.Entry::getKey)
-                .toList();
-        duplicate.forEach(System.out::println);
-
         //---------------------- find top 3 distinct largest numbers --------------------------
-        list.stream().distinct().sorted(Comparator.reverseOrder())
-                .limit(3).forEach(System.out::println);
+        list.stream().distinct()
+                .sorted(Comparator.reverseOrder())
+                .limit(3)
+                .forEach(System.out::println);
 
 
         //---------------------- find low 3 distinct lowest numbers ---------------------------
         list.stream().distinct().sorted()
-                .limit(3).forEach(System.out::println);
+                .limit(3)
+                .forEach(System.out::println);
 
 
         //------------------------ Convert a list to comma-separated String of even numbers ----------------
@@ -59,20 +53,16 @@ public class IntegerOperation {
         //--------------------------- find the frequency of each character ----------------------
         Map<Integer, Long> frequency = list.stream()
                 .collect(Collectors.groupingBy(n-> n, Collectors.counting()));
-//        System.out.println(frequency);
+        System.out.println(frequency);
 
 
-        // -------------------------- find the min and max number in that list -------------------
+        //-------------------------- find  the min and max sum() and age() number in that list ---------------------
         int min = list.stream().min(Integer::compare).get();
         int max = list.stream().max(Integer::compare).get();
-
-//        System.out.println("Min Number : "+ min + "\nMax Number : "+max);
-
-        //-------------------------- find sum() and age() number in that list ---------------------
         int sum = list.stream().mapToInt(Integer::intValue).sum();
         OptionalDouble avg = list.stream().mapToInt(Integer::intValue).average();
 
-//        System.out.println("Sum of list : "+ sum + "\nAverage of list : "+ avg);
+        System.out.println("Min Number : "+ min + "\nMax Number : "+max + " Sum of list : "+ sum + "\nAverage of list : "+ avg);
 
 
         //-------------------------- filter numbers that start with 1 and end with 0 -----------------
@@ -82,10 +72,20 @@ public class IntegerOperation {
 
 
         // ------------------------- filter data b/w 40 and 80 in the list ------------------------
-        list.stream().filter(n-> n>40 && n<80).forEach(System.out::println);
+        list.stream().filter(n-> n>40 && n<80)
+                .forEach(System.out::println);
 
         // ------------------------- filter data last digit exit 0 ---------------------------------
+        list.stream().filter(t-> String.valueOf(t).endsWith("0"))
+                .forEach(System.out::println);
 
-        list.stream().filter(t-> String.valueOf(t).endsWith("0")).forEach(System.out::println);
+        //----------------------- find duplicate element -------------------------------
+        List<Integer> duplicate = list.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .filter(e->e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList();
+        duplicate.forEach(System.out::println);
     }
 }
