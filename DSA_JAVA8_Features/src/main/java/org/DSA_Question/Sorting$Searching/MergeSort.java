@@ -2,6 +2,11 @@ package org.DSA_Question.Sorting$Searching;
 
 public class MergeSort {
 
+    /**
+     * T(n) = O(n log n)
+     * Time Complexity: O(n log n)
+     * Space Complexity: O(n)
+     */
     public static void mergeSort(int []arr, int []left, int []right){
 
         int i=0,j=0,k=0;

@@ -4,11 +4,16 @@ import java.util.Stack;
 
 public class ValidParentheses {
 
+
+    /**
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
     public static boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
 
-        if(s.length()%2!=0) return false;
-        for (char c : s.toCharArray()) {
+        if(s.length()%2!=0) return false;  // base condition
+        for (char c : s.toCharArray()) {   // other
             if (c == '(') {
                 st.push(')');
             } else if (c == '[') {

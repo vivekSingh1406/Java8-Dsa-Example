@@ -4,6 +4,10 @@ import java.util.Stack;
 
 public class ClearDigit {
 
+    /**
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
     public static String clearDigits(String s) {
         StringBuilder sb = new StringBuilder();
 

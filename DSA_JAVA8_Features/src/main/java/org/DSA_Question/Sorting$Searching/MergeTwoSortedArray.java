@@ -2,6 +2,11 @@ package org.DSA_Question.Sorting$Searching;
 
 public class MergeTwoSortedArray {
 
+
+    /**
+     * Time Complexity: O(m * n)
+     * Space Complexity: O(1)
+     */
     public static void mergeArrays(int[] a, int[] b){
 
         for (int i = b.length - 1; i >= 0; i--) {

@@ -2,12 +2,10 @@ package org.DSA_Question.Sorting$Searching;
 
 public class SelectionSort {
 
-
-/**
- * Time Complexity: O(n²)
- * Space Complexity: O(1)
- */
-
+    /**
+     * Time Complexity: O(n²)
+     * Space Complexity: O(1)
+     */
     public static void sortArr(int[] arr){
 
         for(int i=0;i<arr.length-1;i++){
@@ -18,6 +16,7 @@ public class SelectionSort {
                     min_index = j;
                 }
             }
+
             int temp = arr[i];
             arr[i]= arr[min_index];
             arr[min_index]=temp;

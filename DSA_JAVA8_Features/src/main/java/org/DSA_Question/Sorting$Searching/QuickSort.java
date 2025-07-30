@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class QuickSort {
 
+
+    /**
+     * Time Complexity: O(n log n)
+     * Space Complexity: O(log n)
+     */
     public static void sort(int[] nums, int low, int hi) {
         if (low >= hi) return;
 
