@@ -87,5 +87,42 @@ public class IntegerOperation {
                 .map(Map.Entry::getKey)
                 .toList();
         duplicate.forEach(System.out::println);
+        
+
+        //------------------------- find sum and average of list -----------------------------
+        double sumOfList = list.stream().mapToInt(Integer::intValue).sum();
+        System.out.println("sum of list "+ sumOfList);
+
+        OptionalDouble avgOfList = list.stream().mapToInt(Integer::intValue).average();
+        System.out.println("average of list "+ avgOfList);
+
+        //------------------------ Find the frequency of each number --------------------------
+        Map<Integer, Long> freqNumber = list.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(freqNumber);
+
+        //------------------------ Partition the list into even and odd numbers ----------------
+        Map<Boolean, List<Integer>> partitioned = list.stream()
+                .collect(Collectors.partitioningBy(n-> n%2==0));
+        System.out.println(partitioned);
+
+        //-------------------- Convert all elements to their square and collect to a list --------
+        List<Integer> squares = list.stream().map(n-> n*n).collect(Collectors.toList());
+        System.out.println(squares);
+
+        //-------------------- Sort the list in ascending and descending order --------------------
+        List<Integer> asc = list.stream()
+                .sorted().toList();
+        System.out.println("list print in asc orders "+asc);
+
+        List<Integer> desc = list.stream().sorted(Comparator.reverseOrder()).toList();
+        System.out.println("list print in desc orders "+ desc);
+
+        //-------------------- Group elements by modulo 10 -------------------------
+        Map<Integer, List<Integer>> grouped = list.stream().collect(Collectors.groupingBy(n-> n%10));
+        System.out.println(grouped);
+
+
+
     }
 }
