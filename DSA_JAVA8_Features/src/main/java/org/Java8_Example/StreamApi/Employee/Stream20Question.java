@@ -40,13 +40,11 @@ public class Stream20Question {
 
 
 //  ------------------  get a list of unique cities name  --------------------
-
         List<String> getUniqueCitiesName = employees.stream()
                 .map(Employee::getCity).distinct().toList();
-//        System.out.println(getUniqueCitiesName);
+        System.out.println(getUniqueCitiesName);
 
 //  ------------------ sort employees by salary then sort by name in descending order --------------
-
         List<Employee> sortEmpByDesc = employees.stream()
                 .sorted(Comparator.comparing(Employee::getSalary)
                         .reversed()
@@ -55,7 +53,6 @@ public class Stream20Question {
 //        System.out.println(sortEmpByDesc);
 
 //  ----------------- find the total salary expense of all employees  --------------
-
         double sumTotalSalary = employees.stream()
                 .mapToDouble(Employee::getSalary).sum();
         System.out.println(sumTotalSalary);
@@ -68,7 +65,6 @@ public class Stream20Question {
 
 
 //  -----------------  map of department names to list of employee names ----------------
-
         Map<String, List<String>> deptToEmployeeNames = employees.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartmentName,
                         Collectors.mapping(Employee::getName, Collectors.toList())));
@@ -82,30 +78,31 @@ public class Stream20Question {
         System.out.println(totalSalaryByDept);
 
 //  ------------------ count the number of employees in each country----------------
-
         Map<String, Long> countByCountry = employees.stream()
                 .collect(Collectors.groupingBy(Employee::getCountry, Collectors.counting()));
         System.out.println(countByCountry);
 
 //  ---------------- comma-separated string of all department names ----------------
-
         String departments = employees.stream()
                 .map(Employee::getDepartmentName).distinct()
                 .collect(Collectors.joining(", "));
         System.out.println(departments);
 
 //  --------------- employee with the lowest salary -------------------------
-
         Optional<Employee> lowestSalary = employees.stream()
                 .min((Comparator.comparingDouble(Employee::getSalary)));
         System.out.println(lowestSalary);
 
 //  ----------------- find the second highest salaried employee ---------------------
-
         Optional<Employee> secondHighest = employees.stream()
                 .sorted(Comparator.comparingDouble(Employee::getSalary))
                 .skip(1).findFirst();
         System.out.println(secondHighest);
+
+ //  ------------------ find the first highest salary on employee----------------
+        Optional<Employee>  firstHighest = employees.stream()
+                .max(Comparator.comparingDouble(Employee::getSalary));
+        System.out.println(firstHighest);
 
 
     }
