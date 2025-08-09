@@ -10,8 +10,8 @@ public class QuickSort {
      * Space Complexity: O(log n)
      */
     public static void sort(int[] nums, int low, int hi) {
-        if (low >= hi) return;
 
+        if (low >= hi) return;
 
         int s = low;
         int e = hi;
@@ -30,10 +30,10 @@ public class QuickSort {
                 e--;
             }
         }
-
         sort(nums, low, e);
         sort(nums, s, hi);
     }
+
     public static void main(String[] args) {
 
         int[] arr = {2,5,4,8,9,90,32,23,43,55,67,89,22};

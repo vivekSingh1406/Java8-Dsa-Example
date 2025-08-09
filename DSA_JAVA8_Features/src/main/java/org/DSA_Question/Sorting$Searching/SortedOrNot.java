@@ -53,6 +53,7 @@ public class SortedOrNot {
         }
         System.out.println();
     }
+
     public static void main(String[] args) {
 
         int[] arr = {1,15,95,36,8,55,2};
