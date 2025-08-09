@@ -1,4 +1,4 @@
-package org.DSA_Question.CommanQuestion;
+package org.DSA_Question.Array$String;
 
 public class MaximumAscendingSubarraySum {
 

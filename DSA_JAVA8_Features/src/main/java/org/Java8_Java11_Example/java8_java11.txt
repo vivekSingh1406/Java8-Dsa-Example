@@ -45,3 +45,31 @@
     Both Java 8 and Java 11 are Long-Term Support (LTS) versions.
     Java 8 is older and lacks modern features (like modules, var, new APIs).
     Java 11 is more performant, cleaner, and better for microservices (especially with HTTP Client, improved GC, etc.)
+
+
+7. Why we use method reference and constructor reference?
+=>
+    We use method references and constructor references in Java mainly to make our code shorter,
+    cleaner, and easier to read when using functional programming (like streams, lambdas, etc.).
+
+    Method Reference
+    A method reference is a shorthand for a lambda expression that just calls an existing method.
+
+    Why use it:-
+        - Less code to write.
+        - Improves readability when the lambda only calls a method.
+
+    Example:-
+
+        list.forEach(System.out::println);
+        -  System.out → object
+        -  println → method being called
+        -  :: → method reference operator
+
+
+    Constructor Reference
+    A constructor reference is a shortcut for creating new objects in a lambda.
+
+    When to use them:-
+        - When your lambda just calls an existing method or constructor.
+        - When you want cleaner and more expressive code.
