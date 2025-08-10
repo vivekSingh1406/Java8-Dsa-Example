@@ -1,6 +1,6 @@
 package org.DSA_Question.TreesQuestion;
 
-public class CompareTwoTrees {
+public class CompareTwoTree {
 
 
     public static boolean isIdentical(Node n1, Node n2) {
@@ -17,8 +17,6 @@ public class CompareTwoTrees {
 
     public static void main(String[] args) {
 
-
-        // Representation of input binary tree 1
         //        1
         //       / \
         //      2   3

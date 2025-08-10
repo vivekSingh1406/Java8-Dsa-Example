@@ -46,7 +46,6 @@ public class ChangeMirrorTree {
 
     public static void main(String[] args) {
 
-        // Representation of input binary tree 2
         //        1
         //       / \
         //      2   3
