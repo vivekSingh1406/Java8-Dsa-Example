@@ -5,9 +5,6 @@ public class HappyNumber {
     /**
      * Determines whether the given number is a happy number.
      *
-     * @param n The number to be checked.
-     * @return {@code true} if the number is happy; {@code false} otherwise.
-     *
      * Time Complexity: O(log n) per step × number of steps.
      * Space Complexity: O(1)
      */
