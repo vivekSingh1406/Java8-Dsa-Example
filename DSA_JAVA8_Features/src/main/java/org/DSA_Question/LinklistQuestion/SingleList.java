@@ -1,18 +1,5 @@
 package org.DSA_Question.LinklistQuestion;
 
-class Node {
-    int data;
-    Node next;
-
-    Node(int data, Node next) {
-        this.data = data;
-        this.next = next;
-    }
-    Node(int data) {
-        this(data, null);
-    }
-}
-
 public class SingleList {
 
     Node head;
