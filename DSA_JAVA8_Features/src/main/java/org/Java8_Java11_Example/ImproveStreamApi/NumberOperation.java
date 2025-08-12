@@ -56,15 +56,13 @@ public class NumberOperation {
 
         List<Integer> numbers = Arrays.asList(5, 3, 9, 1, 7, 11, 14, 16, 19, 20, 21, 21);
 
-        // remove duplicate number in a list
-        numbers.stream().distinct().forEach(System.out::println);
-
         // second-smallest number in a list
         int secondNumber =  numbers.stream()
                 .distinct()
                 .sorted()
                 .skip(1)
-                .findFirst().orElse(0);
+                .findFirst()
+                .orElse(0);
         System.out.println("second smallest number: "+ secondNumber);
 
         // second-largest number in a list
@@ -72,8 +70,15 @@ public class NumberOperation {
                 .distinct()
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
-                .findFirst().orElse(0);
+                .findFirst()
+                .orElse(0);
         System.out.println("second highest number: "+ secondHighest);
+
+        // get all number div by 5
+        List<Integer> divBy5 = numbers.stream()
+                .filter(t-> t%5==0)
+                .toList();
+        divBy5.forEach(System.out::println);
 
         // find number start with 1
         List<Integer> startNumber1 = numbers.stream()

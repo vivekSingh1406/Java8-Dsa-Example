@@ -73,3 +73,13 @@
     When to use them:-
         - When your lambda just calls an existing method or constructor.
         - When you want cleaner and more expressive code.
+
+8. Java Stream map() vs. flatMap()
+=>
+    map() :- The map() operation is used to transform each element of a stream into another
+    object using a given function. It returns a new stream containing the transformed elements
+    in the same order as the original stream.
+
+    flatMap() :- The flatMap() operation is used when each element in the stream is transformed
+    into multiple elements, often in the form of another collection or stream. The resulting
+    elements are then flattened into a single stream.

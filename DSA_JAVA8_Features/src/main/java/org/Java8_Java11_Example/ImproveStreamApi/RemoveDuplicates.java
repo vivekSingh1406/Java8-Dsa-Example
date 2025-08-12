@@ -15,7 +15,6 @@ public class RemoveDuplicates  {
                 .distinct()
                 .mapToObj(c -> String.valueOf((char) c))
                 .collect(Collectors.joining());
-
         System.out.println(result);
 
         //count each character in a string
