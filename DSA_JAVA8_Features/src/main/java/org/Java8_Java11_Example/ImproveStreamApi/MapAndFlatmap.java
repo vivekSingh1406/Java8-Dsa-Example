@@ -1,7 +1,6 @@
 package org.Java8_Java11_Example.ImproveStreamApi;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class MapAndFlatmap {
