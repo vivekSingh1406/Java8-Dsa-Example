@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f9fa;
+}
+h2 {
+    font-weight: 600;
+}
+.table {
+    background: #fff;
+}
+.btn {
+    margin-right: 5px;
+}
