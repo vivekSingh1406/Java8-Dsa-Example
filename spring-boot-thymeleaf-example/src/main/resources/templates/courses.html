@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<body class="container py-4" xmlns:th="http://www.w3.org/1999/xhtml">
+<h2>Courses</h2>
+<div th:replace="fragments/alerts :: *"></div>
+
+
+<form th:if="${canManage}" method="post" action="/courses" id="courseForm" class="row g-2">
+    <div class="col-md-3"><input name="courseName" class="form-control" placeholder="Course Name" required/></div>
+    <div class="col-md-4"><input name="description" class="form-control" placeholder="Description (11-19 words)" required/></div>
+    <div class="col-md-2"><input name="startDate" class="form-control" type="date" required/></div>
+    <div class="col-md-2"><input name="endDate" class="form-control" type="date" required/></div>
+    <div class="col-md-1">
+        <select name="instructorId" class="form-select" required>
+            <option th:each="i: ${instructors}" th:value="${i.userId}" th:text="${i.fullName}"></option>
+        </select>
+    </div>
+    <div class="col-12"><button class="btn btn-success">Create</button></div>
+</form>
+
+
+<hr/>
+<table class="table table-striped">
+    <thead><tr><th>ID</th><th>Name</th><th>Description</th><th>Start</th><th>End</th><th>Instructor</th><th>Actions</th></tr></thead>
+    <tbody>
+    <tr th:each="c: ${courses}">
+        <td th:text="${c.courseId}"></td>
+        <td th:text="${c.courseName}"></td>
+        <td th:text="${c.description}"></td>
+        <td th:text="${c.startDate}"></td>
+        <td th:text="${c.endDate}"></td>
+        <td th:text="${c.instructor.fullName}"></td>
+        <td>
+            <form th:if="${canManage}" th:action="@{'/courses/' + ${c.courseId} + '/delete'}" method="post" onsubmit="return confirm('Delete course?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    $(function(){
+    $('#courseForm').on('submit', function(e){
+    const desc = $('input[name=description]').val();
+    const words = desc.trim().split(/\s+/).filter(x=>x).length;
+    if(words < 11 || words > 19){ e.preventDefault(); alert('Description must be between 11 and 19 words'); return; }
+    const today = new Date(); today.setHours(0,0,0,0);
+    const sd = new Date($('input[name=startDate]').val());
+    const ed = new Date($('input[name=endDate]').val());
+    if(!(sd > today)){ e.preventDefault(); alert('Start date must be in the future'); return; }
+    if(!(ed > sd)){ e.preventDefault(); alert('End date must be after start date'); return; }
+    });
+    });
+</script>
+</body>
+</html>

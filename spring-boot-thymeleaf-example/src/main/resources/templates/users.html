@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body class="container py-4">
+<h2>Users</h2>
+<div th:replace="fragments/alerts :: *"></div>
+
+
+<form method="post" action="/users" id="userForm" class="row g-2">
+    <div class="col-md-3"><input name="fullName" class="form-control" placeholder="Full Name" required/></div>
+    <div class="col-md-3"><input name="email" class="form-control" placeholder="Email" required type="email"/></div>
+    <div class="col-md-2"><input name="mobile" class="form-control" placeholder="Mobile (10)" required maxlength="10"/></div>
+    <div class="col-md-2"><input name="password" id="password" class="form-control" placeholder="Password" required type="password"/></div>
+    <div class="col-md-2">
+        <select name="role" class="form-select" required>
+            <option th:each="r: ${roles}" th:value="${r}" th:text="${r}"></option>
+        </select>
+    </div>
+    <div class="col-12"><button class="btn btn-success">Create</button></div>
+</form>
+
+
+<hr/>
+<table class="table table-striped">
+    <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Role</th><th>Registered</th><th>Actions</th></tr></thead>
+    <tbody>
+    <tr th:each="u: ${users}">
+        <td th:text="${u.userId}"></td>
+        <td th:text="${u.fullName}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.mobile}"></td>
+        <td th:text="${u.role}"></td>
+        <td th:text="${#temporals.format(u.dateRegistered, 'yyyy-MM-dd HH:mm')}"></td>
+        <td>
+            <form th:if="${canEdit}" th:action="@{'/users/' + ${u.userId} + '/delete'}" method="post" onsubmit="return confirm('Delete user?')">
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    $(function(){
+    $('#userForm').on('submit', function(e){
+    const email = $('input[name=email]').val();
+    const mobile = $('input[name=mobile]').val();
+    const pwd = $('#password').val();
+    const pwdOk = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{9,}$/.test(pwd);
+    if(!/^\d{10}$/.test(mobile)){ e.preventDefault(); alert('Mobile must be 10 digits'); }
+    else if(!pwdOk){ e.preventDefault(); alert('Weak password: need upper, lower, digit, special, len>8'); }
+    });
+    });
+</script>
+</body>
+</html>

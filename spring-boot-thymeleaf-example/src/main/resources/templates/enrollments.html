@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollments</title>
+  <link rel="stylesheet" href="path/to/bootstrap.css"> <!-- Add your Bootstrap CSS path -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery -->
+</head>
+<body>
+<hr />
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Course</th>
+    <th>Student</th>
+    <th>Enrolled At</th>
+    <th>Progress</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="e : ${enrollments}">
+    <td th:text="${e.enrollmentId}"></td>
+    <td th:text="${e.course.courseName}"></td>
+    <td th:text="${e.student.fullName}"></td>
+    <td th:text="${#temporals.format(e.enrollmentDate, 'yyyy-MM-dd HH:mm')}"></td>
+    <td>
+      <form th:if="${canManage}" th:action="@{'/enrollments/' + ${e.enrollmentId} + '/progress'}" method="post" class="d-flex gap-1">
+        <input type="number" name="progressPercent" min="0" max="100" class="form-control form-control-sm" th:value="${e.progressPercent}" />
+        <select name="status" class="form-select form-select-sm">
+          <option th:value="'ENROLLED'" th:text="'ENROLLED'"></option>
+          <option th:value="'IN_PROGRESS'" th:text="'IN_PROGRESS'"></option>
+          <option th:value="'COMPLETED'" th:text="'COMPLETED'"></option>
+        </select>
+        <button class="btn btn-sm btn-primary">Update</button>
+      </form>
+      <span th:if="${!canManage}" th:text="${e.progressPercent + '%'}"></span>
+    </td>
+    <td th:text="${e.status}"></td>
+    <td>
+      <form th:if="${canManage}" th:action="@{'/enrollments/' + ${e.enrollmentId} + '/delete'}" method="post" onsubmit="return confirm('Delete enrollment?')">
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+  $(function() {
+      $('#enrollForm').on('submit', function(e) {
+          // Prevent enrolling in started courses (client hint; server enforces too)
+          const selected = $(this).find('select[name=courseId] option:selected').text();
+          const dateStr = selected.match(/\(([^)]+)\)/)[1];
+          const sd = new Date(dateStr);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          if (!(sd > today)) {
+              e.preventDefault();
+              alert('Cannot enroll after the course has started');
+          }
+      });
+  });
+</script>
+</body>
+</html>
