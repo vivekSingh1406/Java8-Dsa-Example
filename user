@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<body>
+<h2 class="mb-3">User Management</h2>
+
+<!-- User Form -->
+<form th:action="@{/users}" method="post" onsubmit="return validateUserForm()">
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <label>Full Name</label>
+            <input type="text" name="fullName" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>Mobile</label>
+            <input type="text" name="mobile" maxlength="10" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>Role</label>
+            <select name="role" class="form-select" required>
+                <option value="">--Select Role--</option>
+                <option value="Admin">Admin</option>
+                <option value="Instructor">Instructor</option>
+                <option value="Student">Student</option>
+            </select>
+        </div>
+        <div class="col-12 mt-2">
+            <button type="submit" class="btn btn-primary">Add User</button>
+        </div>
+    </div>
+</form>
+
+<!-- User Table -->
+<table class="table table-bordered table-striped mt-4">
+    <thead>
+        <tr>
+            <th>UserID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Role</th><th>Registered</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.userId}"></td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.mobile}"></td>
+            <td th:text="${user.role}"></td>
+            <td th:text="${user.dateRegistered}"></td>
+            <td>
+                <a th:if="${#strings.equals(user.role, 'Admin')}" th:href="@{/users/edit/{id}(id=${user.userId})}" class="btn btn-sm btn-warning">Edit</a>
+                <a th:if="${#strings.equals(user.role, 'Admin')}" th:href="@{/users/delete/{id}(id=${user.userId})}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
