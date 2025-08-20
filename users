@@ -53,8 +53,16 @@
             <td th:text="${user.role}"></td>
             <td th:text="${user.dateRegistered}"></td>
             <td>
-                <a th:if="${#strings.equals(user.role, 'Admin')}" th:href="@{/users/edit/{id}(id=${user.userId})}" class="btn btn-sm btn-warning">Edit</a>
-                <a th:if="${#strings.equals(user.role, 'Admin')}" th:href="@{/users/delete/{id}(id=${user.userId})}" class="btn btn-sm btn-danger">Delete</a>
+                <!-- Edit Form -->
+                <form th:action="@{/users/{id}(id=${user.userId})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="put"/>
+                    <button type="submit" class="btn btn-sm btn-warning">Edit</button>
+                </form>
+                <!-- Delete Form -->
+                <form th:action="@{/users/{id}(id=${user.userId})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
             </td>
         </tr>
     </tbody>
