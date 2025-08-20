@@ -1,0 +1,52 @@
+function showError(message) {
+    document.getElementById("errorMessage").innerText = message;
+    new bootstrap.Modal(document.getElementById("errorModal")).show();
+}
+
+function validateUserForm() {
+    let mobile = document.querySelector("input[name='mobile']").value;
+    let password = document.querySelector("input[name='password']").value;
+
+    if (!/^\d{10}$/.test(mobile)) {
+        showError("Mobile must be 10 digits only.");
+        return false;
+    }
+    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{9,}/.test(password)) {
+        showError("Password must have upper, lower, digit, special char & >8 chars.");
+        return false;
+    }
+    return true;
+}
+
+function validateCourseForm() {
+    let description = document.querySelector("textarea[name='description']").value.trim();
+    let startDate = new Date(document.querySelector("input[name='startDate']").value);
+    let endDate = new Date(document.querySelector("input[name='endDate']").value);
+    let today = new Date();
+
+    let wordCount = description.split(/\s+/).length;
+    if (wordCount < 10 || wordCount > 20) {
+        showError("Description must be between 10 and 20 words.");
+        return false;
+    }
+    if (startDate <= today) {
+        showError("Start date must be in the future.");
+        return false;
+    }
+    if (endDate <= startDate) {
+        showError("End date must be after start date.");
+        return false;
+    }
+    return true;
+}
+
+function validateEnrollmentForm() {
+    let courseId = document.querySelector("select[name='courseId']").value;
+    let studentId = document.querySelector("select[name='studentId']").value;
+
+    if (!courseId || !studentId) {
+        showError("Course and Student must be selected.");
+        return false;
+    }
+    return true;
+}
