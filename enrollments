@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<body>
+<h2 class="mb-3">Enrollments</h2>
+
+<form th:action="@{/enrollments}" method="post" onsubmit="return validateEnrollmentForm()">
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <label>Course</label>
+            <select name="courseId" class="form-select" required>
+                <option th:each="course : ${courses}" 
+                        th:value="${course.courseId}" 
+                        th:text="${course.courseName}">
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>Student</label>
+            <select name="studentId" class="form-select" required>
+                <option th:each="student : ${students}" 
+                        th:value="${student.userId}" 
+                        th:text="${student.fullName}">
+                </option>
+            </select>
+        </div>
+        <div class="col-12 mt-2">
+            <button type="submit" class="btn btn-primary">Enroll Student</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped mt-4">
+    <thead>
+        <tr>
+            <th>ID</th><th>Course</th><th>Student</th><th>Date</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="enrollment : ${enrollments}">
+            <td th:text="${enrollment.enrollmentId}"></td>
+            <td th:text="${enrollment.course.courseName}"></td>
+            <td th:text="${enrollment.student.fullName}"></td>
+            <td th:text="${enrollment.enrollmentDate}"></td>
+            <td>
+                <form th:action="@{/enrollments/{id}(id=${enrollment.enrollmentId})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
