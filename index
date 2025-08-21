@@ -1,7 +1,0 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
-<body>
-    <h2 class="text-center">Welcome to Learning Management System (LMS)</h2>
-    <p class="text-center mt-3">Manage Users, Courses, and Enrollments from the navigation menu above.</p>
-</body>
-</html>
