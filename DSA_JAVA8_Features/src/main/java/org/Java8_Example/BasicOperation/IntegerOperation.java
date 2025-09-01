@@ -12,8 +12,11 @@ public class IntegerOperation {
 
 
       //------------------------- find the second-highest number ----------------------
-        Optional<Integer> secondHighest = list.stream().distinct()
-                .sorted(Comparator.reverseOrder()).skip(1).findFirst();
+        Optional<Integer> secondHighest = list.stream()
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst();
 
         secondHighest.ifPresentOrElse(
                 System.out::println,
@@ -21,8 +24,11 @@ public class IntegerOperation {
         );
 
         //---------------------- find the second lowest number ------------------------
-        Optional<Integer> secondLowest = list.stream().distinct()
-                .sorted().skip(1).findFirst();
+        Optional<Integer> secondLowest = list.stream()
+                .distinct()
+                .sorted()
+                .skip(1)
+                .findFirst();
 
         secondLowest.ifPresentOrElse(
                 System.out::println,
@@ -90,10 +96,14 @@ public class IntegerOperation {
         
 
         //------------------------- find sum and average of list -----------------------------
-        double sumOfList = list.stream().mapToInt(Integer::intValue).sum();
+        double sumOfList = list.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
         System.out.println("sum of list "+ sumOfList);
 
-        OptionalDouble avgOfList = list.stream().mapToInt(Integer::intValue).average();
+        OptionalDouble avgOfList = list.stream()
+                .mapToInt(Integer::intValue)
+                .average();
         System.out.println("average of list "+ avgOfList);
 
         //------------------------ Find the frequency of each number --------------------------
@@ -107,7 +117,9 @@ public class IntegerOperation {
         System.out.println(partitioned);
 
         //-------------------- Convert all elements to their square and collect to a list --------
-        List<Integer> squares = list.stream().map(n-> n*n).collect(Collectors.toList());
+        List<Integer> squares = list.stream()
+                .map(n-> n*n)
+                .toList();
         System.out.println(squares);
 
         //-------------------- Sort the list in ascending and descending order --------------------
@@ -115,11 +127,14 @@ public class IntegerOperation {
                 .sorted().toList();
         System.out.println("list print in asc orders "+asc);
 
-        List<Integer> desc = list.stream().sorted(Comparator.reverseOrder()).toList();
+        List<Integer> desc = list.stream()
+                .sorted(Comparator.reverseOrder())
+                .toList();
         System.out.println("list print in desc orders "+ desc);
 
         //-------------------- Group elements by modulo 10 -------------------------
-        Map<Integer, List<Integer>> grouped = list.stream().collect(Collectors.groupingBy(n-> n%10));
+        Map<Integer, List<Integer>> grouped = list.stream()
+                .collect(Collectors.groupingBy(n-> n%10));
         System.out.println(grouped);
 
 

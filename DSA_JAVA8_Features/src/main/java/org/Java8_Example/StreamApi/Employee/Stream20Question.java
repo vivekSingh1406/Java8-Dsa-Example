@@ -15,6 +15,7 @@ public class Stream20Question {
                 .filter(t-> "New York".equals(t.getCity())).toList();
 //        empFilterByCity.forEach(System.out::println);
 
+
 //  -------------------  names of all employees as a List<String> --------------
         List<String> getEmpAllEmpName = employees.stream()
                 .map(Employee::getName).toList();
