@@ -1,8 +1,6 @@
 package org.Java8_Example.StreamApi.Employee1;
 
 import org.Java8_Example.StreamApi.Employee.Employee;
-
-import java.lang.management.OperatingSystemMXBean;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +53,7 @@ public class Top20Question {
 
         // group by country, find sun of each group
         Map<String, Double> groupByCountryAddSalary = employee.stream()
-                .collect(Collectors.groupingBy(
+                 .collect(Collectors.groupingBy(
                         Employee::getCountry,
                         Collectors.summingDouble(Employee::getSalary)));
 //        groupByCountryAddSalary.forEach((country, sal) -> System.out.println(country +"----"+ sal));
